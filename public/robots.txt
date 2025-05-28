@@ -1,0 +1,13 @@
+User-agent: *
+
+# parameters
+Disallow: /*?page=*
+Disallow: /categories/*?page=*
+Disallow: /tag/*?page=*
+Disallow: /*public/*
+Disallow: /*en/*
+Disallow: /*bn/*
+Disallow: /*cdn-cgi/*
+
+
+Sitemap: https://zettabyte.com.bd/sitemap.xml
