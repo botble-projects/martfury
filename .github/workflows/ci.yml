@@ -43,7 +43,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
+      - name: 🔍 Debug Secrets (host, user, key)
+        run: |
+          echo "HOST: ${{ secrets.PRODUCTION_HOST }}"
+          echo "USER: ${{ secrets.PRODUCTION_USER }}"
+          echo "PORT: ${{ secrets.PRODUCTION_PORT }}"
+          if [ -z "${{ secrets.PRODUCTION_SSH_KEY }}" ]; then
+            echo "❌ PRODUCTION_SSH_KEY is EMPTY"
+          else
+            echo "✅ PRODUCTION_SSH_KEY is SET"
+          fi
       - name: Deploy to Production Server
         uses: appleboy/ssh-action@master
         with:
